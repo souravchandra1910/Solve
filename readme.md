@@ -7,14 +7,7 @@ Backtracking is a powerful algorithmic technique used to solve constraint satisf
 - [How Backtracking Works](#how-backtracking-works)
 - [General Backtracking Template](#general-backtracking-template)
 - [Types of Problems Solved by Backtracking](#types-of-problems-solved-by-backtracking)
-- [Example Problems](#example-problems)
-- [Complexity Analysis](#complexity-analysis)
-- [Advantages and Disadvantages](#advantages-and-disadvantages)
-- [Resources for Learning](#resources-for-learning)
 - [Practice Problems](#practice-problems)
-- [Contributing](#contributing)
-- [License](#license)
-
 ---
 
 ## 🚀 Introduction
@@ -37,16 +30,18 @@ It is commonly used in:
 
 ## 📝 General Backtracking Template
 ```
-function BACKTRACK(path, options):
-    if is_solution(path):
-        process_solution(path)
-        return
-    
-    for each option in options:
-        if is_valid(option, path):
-            path.append(option)  // Make a choice
-            BACKTRACK(path, new_options)  // Explore further
-            path.pop()  // Undo the choice (backtrack)
+function backtrack(int index,int n,List ds,int []arr):
+    // base case
+    if(index==n){
+        ans.add(ds);
+        return;
+    }
+    //pick an element 
+    ds.add(arr[index])
+    solve(index+1,n,ds,arr);
 
+    //don't pick the element
+    ds.removeLast();
+    solve(index+1,n,ds,arr);
 ```
 
