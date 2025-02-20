@@ -25,7 +25,7 @@
             ans.add(temp);
             return;
         }
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < n; i++) {
             if (vis[i] == false) {
                 vis[i] = true;
                 // pick
@@ -76,6 +76,30 @@
         combinations(start + 1, n, k, al, ans);
     }
 ```
+
+### **combinations code using for loop**
+
+```
+    public List<List<Integer>> combine(int n, int k) {
+        List<Integer> al = new ArrayList<>();
+        List<List<Integer>> ans = new ArrayList<>();
+        combinations(1, n, k, al, ans);
+        return ans;
+    }
+
+    private void combinations(int start, int n, int k, List<Integer> al, List<List<Integer>> ans) {
+        if (k == 0) {
+            List<Integer> temp = new ArrayList<>(al);
+            ans.add(temp);
+        }
+
+        for (int i = start; i <= n; i++) {
+            al.add(i);
+            combinations(i + 1, n, k - 1, al, ans);
+            al.remove(al.size() - 1);
+        }
+    }
+```
 ---
 
 ## **3. Subset (All Possible Selections)**
@@ -110,6 +134,29 @@
         // Don't pick the element.
         al.remove(al.size() - 1);
         subsets(idx + 1, n, al, ans, nums);
+    }
+```
+
+### **subset code using for loop**
+
+```
+    public List<List<Integer>> subsets(int[] nums) {
+        int n = nums.length;
+        List<Integer> al = new ArrayList<>();
+        List<List<Integer>> ans = new ArrayList<>();
+        subsets(0, n, al, ans, nums);
+        return ans;
+    }
+
+    private void subsets(int idx, int n, List<Integer> al, List<List<Integer>> ans, int[] nums) {
+        List<Integer> temp = new ArrayList<>(al);
+        ans.add(temp);
+        // using loop
+        for (int i = idx; i < n; i++) {
+            al.add(nums[i]);
+            subsets(i + 1, n, al, ans, nums);
+            al.remove(al.size() - 1);
+        }
     }
 ```
 
