@@ -141,4 +141,10 @@ Contributions are welcome! If you find any issue or want to add more topics, fee
 
 ---
 
+### Topics
+- **[Backtracking](https://github.com/souravchandra1910/Solve/tree/backtracking)**
+
+---
 Happy Coding! 🚀💻✨
+
+
